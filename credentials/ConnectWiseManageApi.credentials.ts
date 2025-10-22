@@ -17,27 +17,10 @@ export class ConnectWiseManageApi implements ICredentialType {
 		{
 			displayName: 'Site URL',
 			name: 'siteUrl',
-			type: 'options',
-			options: [
-				{
-					name: 'Australia (api-au.myconnectwise.net)',
-					value: 'https://api-au.myconnectwise.net',
-				},
-				{
-					name: 'Europe (api-eu.myconnectwise.net)',
-					value: 'https://api-eu.myconnectwise.net',
-				},
-				{
-					name: 'North America (api-na.myconnectwise.net)',
-					value: 'https://api-na.myconnectwise.net',
-				},
-				{
-					name: 'Staging (api-staging.connectwisedev.com)',
-					value: 'https://api-staging.connectwisedev.com',
-				},
-			],
+			type: 'string',
 			default: 'https://api-na.myconnectwise.net',
 			description: 'The URL of your ConnectWise Manage instance',
+			required: true,
 		},
 		{
 			displayName: 'Client ID',
