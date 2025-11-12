@@ -108,6 +108,20 @@ export const invoiceProperties: INodeProperties[] = [
 		description: 'Whether to return all results or only up to a given limit',
 	},
 	{
+		displayName: 'Fields',
+		name: 'fields',
+		type: 'string' as NodePropertyTypes,
+		displayOptions: {
+			show: {
+				resource: ['invoice'],
+				operation: ['get', 'getAll', 'search'],
+			},
+		},
+		default: '',
+		description: 'Comma-separated list of fields to return (e.g., id,invoiceNumber,status). Leave empty to return all fields.',
+		placeholder: 'id,invoiceNumber,status,total,company',
+	},
+	{
 		displayName: 'Limit',
 		name: 'limit',
 		type: 'number' as NodePropertyTypes,

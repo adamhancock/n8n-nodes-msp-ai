@@ -876,9 +876,18 @@ export class ConnectWiseManage implements INodeType {
 
 							case 'get': {
 								const id = this.getNodeParameter(currentResource.primaryKey, i) as string;
+								const fields = this.getNodeParameter('fields', i, '') as string;
+								
+								const qs: IDataObject = {};
+								if (fields) {
+									qs.fields = fields;
+								}
+								
 								responseData = await makeApiRequest(
 									Methods.GET,
 									`${baseUrl}/${currentResource.endpoint}/${id}`,
+									{},
+									Object.keys(qs).length > 0 ? qs : undefined,
 								);
 								break;
 							}
@@ -887,6 +896,7 @@ export class ConnectWiseManage implements INodeType {
 								const contactId = this.getNodeParameter('contactId', i) as string;
 								const returnAll = this.getNodeParameter('returnAll', i) as boolean;
 								const limit = this.getNodeParameter('limit', i, 100) as number;
+								const fields = this.getNodeParameter('fields', i, '') as string;
 
 								// Initialize variables for pagination
 								let page = 1;
@@ -899,6 +909,10 @@ export class ConnectWiseManage implements INodeType {
 									pageSize,
 									page,
 								};
+								
+								if (fields) {
+									qs.fields = fields;
+								}
 
 								// Make initial request
 								let response = await makeApiRequest(
@@ -943,6 +957,7 @@ export class ConnectWiseManage implements INodeType {
 								const returnAll = this.getNodeParameter('returnAll', i) as boolean;
 								const limit = this.getNodeParameter('limit', i, 100) as number;
 								const orderBy = this.getNodeParameter('orderBy', i) as string;
+								const fields = this.getNodeParameter('fields', i, '') as string;
 
 								// Initialize variables for pagination
 								let page = 1;
@@ -960,6 +975,11 @@ export class ConnectWiseManage implements INodeType {
 								const searchConditions = this.getNodeParameter('conditions', i, '') as string;
 								if (searchConditions) {
 									qs.conditions = searchConditions;
+								}
+
+								// Add fields parameter if provided
+								if (fields) {
+									qs.fields = fields;
 								}
 
 								// Add any additional filters for ticket searches
@@ -1130,6 +1150,7 @@ export class ConnectWiseManage implements INodeType {
 								const orderBy = this.getNodeParameter('orderBy', i) as string;
 								const returnAll = this.getNodeParameter('returnAll', i) as boolean;
 								const limit = returnAll ? undefined : (this.getNodeParameter('limit', i) as number);
+								const fields = this.getNodeParameter('fields', i, '') as string;
 
 								// Initialize variables for pagination
 								let page = 1;
@@ -1143,6 +1164,11 @@ export class ConnectWiseManage implements INodeType {
 									page,
 									pageSize,
 								};
+
+								// Add fields parameter if provided
+								if (fields) {
+									qs.fields = fields;
+								}
 
 								// Add any additional filters for ticket searches
 								if (resource === 'ticket') {

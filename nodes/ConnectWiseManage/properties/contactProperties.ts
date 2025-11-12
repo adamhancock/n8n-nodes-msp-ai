@@ -143,6 +143,20 @@ export const contactProperties: INodeProperties[] = [
 		description: 'Whether to return all results or only up to a given limit',
 	},
 	{
+		displayName: 'Fields',
+		name: 'fields',
+		type: 'string' as NodePropertyTypes,
+		displayOptions: {
+			show: {
+				resource: ['contact'],
+				operation: ['get', 'getAll', 'search'],
+			},
+		},
+		default: '',
+		description: 'Comma-separated list of fields to return (e.g., id,firstName,lastName). Leave empty to return all fields.',
+		placeholder: 'id,firstName,lastName,email,company',
+	},
+	{
 		displayName: 'Limit',
 		name: 'limit',
 		type: 'number' as NodePropertyTypes,

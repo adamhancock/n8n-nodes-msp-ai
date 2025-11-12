@@ -108,6 +108,20 @@ export const configurationProperties: INodeProperties[] = [
 		description: 'Whether to return all results or only up to a given limit',
 	},
 	{
+		displayName: 'Fields',
+		name: 'fields',
+		type: 'string' as NodePropertyTypes,
+		displayOptions: {
+			show: {
+				resource: ['configuration'],
+				operation: ['get', 'getAll', 'search'],
+			},
+		},
+		default: '',
+		description: 'Comma-separated list of fields to return (e.g., id,name,company). Leave empty to return all fields.',
+		placeholder: 'id,name,company,type,status',
+	},
+	{
 		displayName: 'Limit',
 		name: 'limit',
 		type: 'number' as NodePropertyTypes,

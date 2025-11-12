@@ -108,6 +108,20 @@ export const agreementProperties: INodeProperties[] = [
 		description: 'Whether to return all results or only up to a given limit',
 	},
 	{
+		displayName: 'Fields',
+		name: 'fields',
+		type: 'string' as NodePropertyTypes,
+		displayOptions: {
+			show: {
+				resource: ['agreement'],
+				operation: ['get', 'getAll', 'search'],
+			},
+		},
+		default: '',
+		description: 'Comma-separated list of fields to return (e.g., id,name,type). Leave empty to return all fields.',
+		placeholder: 'id,name,type,startDate,endDate',
+	},
+	{
 		displayName: 'Limit',
 		name: 'limit',
 		type: 'number' as NodePropertyTypes,
