@@ -80,8 +80,8 @@ export const timeProperties: INodeProperties[] = [
 		description: 'Start time (YYYY-MM-DD HH:mm:ss)',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -91,7 +91,8 @@ export const timeProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter time entries',
+		description: 'Search conditions to filter time entries (e.g., chargeCode/id=123 or member/identifier="jsmith")',
+		placeholder: 'company/id=250',
 	},
 	{
 		displayName: 'Return All',
@@ -100,7 +101,7 @@ export const timeProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['time'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -113,7 +114,7 @@ export const timeProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['time'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},
@@ -122,6 +123,19 @@ export const timeProperties: INodeProperties[] = [
 		},
 		default: 100,
 		description: 'Max number of results to return',
+	},
+	{
+		displayName: 'Order By',
+		name: 'orderBy',
+		type: 'string' as NodePropertyTypes,
+		default: 'id',
+		displayOptions: {
+			show: {
+				resource: ['time'],
+				operation: ['getAll', 'search'],
+			},
+		},
+		description: 'Order results by specified field',
 	},
 	{
 		displayName: 'Additional Fields',

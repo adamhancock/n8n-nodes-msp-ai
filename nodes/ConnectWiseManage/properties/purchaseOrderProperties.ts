@@ -80,8 +80,8 @@ export const purchaseOrderProperties: INodeProperties[] = [
 		description: 'The ID of the vendor for the purchase order',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -91,7 +91,8 @@ export const purchaseOrderProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter purchase orders',
+		description: 'Search conditions to filter purchase orders (e.g., vendor/id=123 or status="Open")',
+		placeholder: 'status="Open"',
 	},
 	{
 		displayName: 'Return All',
@@ -100,7 +101,7 @@ export const purchaseOrderProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['purchaseOrder'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -113,7 +114,7 @@ export const purchaseOrderProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['purchaseOrder'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},

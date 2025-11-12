@@ -80,8 +80,8 @@ export const activityProperties: INodeProperties[] = [
 		description: 'The name of the activity',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -91,7 +91,8 @@ export const activityProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter activities',
+		description: 'Search conditions to filter activities (e.g., name contains "Meeting" or type/id=1)',
+		placeholder: 'company/id=250',
 	},
 	{
 		displayName: 'Return All',
@@ -100,7 +101,7 @@ export const activityProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['activity'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -113,7 +114,7 @@ export const activityProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['activity'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},

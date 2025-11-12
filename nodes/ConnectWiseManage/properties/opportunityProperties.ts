@@ -80,8 +80,8 @@ export const opportunityProperties: INodeProperties[] = [
 		description: 'The name of the opportunity',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -91,7 +91,8 @@ export const opportunityProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter opportunities',
+		description: 'Search conditions to filter opportunities (e.g., name contains "Project" or expectedCloseDate > [2024-01-01])',
+		placeholder: 'status/id=1',
 	},
 	{
 		displayName: 'Return All',
@@ -100,7 +101,7 @@ export const opportunityProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['opportunity'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -113,7 +114,7 @@ export const opportunityProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['opportunity'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},

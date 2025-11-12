@@ -100,8 +100,8 @@ export const contactProperties: INodeProperties[] = [
 		description: 'The last name of the contact',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -112,7 +112,8 @@ export const contactProperties: INodeProperties[] = [
 			},
 		},
 		description:
-			'Search query to filter contacts. Use conditions like `firstName="John"` or `lastName like "Smith%"`.',
+			'Search conditions to filter contacts. Use conditions like `firstName="John"` or `lastName like "Smith%"`.',
+		placeholder: 'company/id=250',
 	},
 	{
 		displayName: 'Phone Number',

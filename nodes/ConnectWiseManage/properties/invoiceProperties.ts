@@ -80,8 +80,8 @@ export const invoiceProperties: INodeProperties[] = [
 		description: 'The company ID associated with this invoice',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -91,7 +91,8 @@ export const invoiceProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter invoices',
+		description: 'Search conditions to filter invoices (e.g., company/id=250 or status="Sent")',
+		placeholder: 'status="Sent"',
 	},
 	{
 		displayName: 'Return All',
@@ -100,7 +101,7 @@ export const invoiceProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['invoice'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -113,7 +114,7 @@ export const invoiceProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['invoice'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},

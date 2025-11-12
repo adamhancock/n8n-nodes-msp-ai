@@ -80,8 +80,8 @@ export const expenseProperties: INodeProperties[] = [
 		description: 'The description of the expense',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -91,7 +91,8 @@ export const expenseProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter expenses',
+		description: 'Search conditions to filter expenses (e.g., company/id=250 or amount > 100)',
+		placeholder: 'member/identifier="jsmith"',
 	},
 	{
 		displayName: 'Return All',
@@ -100,7 +101,7 @@ export const expenseProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['expense'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -113,7 +114,7 @@ export const expenseProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['expense'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},

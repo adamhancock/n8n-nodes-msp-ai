@@ -86,8 +86,8 @@ export const companyProperties: INodeProperties[] = [
 		description: 'The name of the company',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -97,7 +97,8 @@ export const companyProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter companies',
+		description: 'Search conditions to filter companies (e.g., name contains "Tech" or status/id=1)',
+		placeholder: 'name contains "Tech"',
 	},
 	{
 		displayName: 'Phone Number',
@@ -120,7 +121,7 @@ export const companyProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['company'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -133,7 +134,7 @@ export const companyProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['company'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},
