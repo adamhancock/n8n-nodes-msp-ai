@@ -1,0 +1,255 @@
+import { INodeProperties, NodePropertyTypes } from 'n8n-workflow';
+
+export const projectTicketProperties: INodeProperties[] = [
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options' as NodePropertyTypes,
+		noDataExpression: true,
+		displayOptions: {
+			show: {
+				resource: ['projectTicket'],
+			},
+		},
+		options: [
+			{
+				name: 'Create',
+				value: 'create',
+				description: 'Create a project ticket',
+				action: 'Create a project ticket',
+			},
+			{
+				name: 'Delete',
+				value: 'delete',
+				description: 'Delete a project ticket',
+				action: 'Delete a project ticket',
+			},
+			{
+				name: 'Get',
+				value: 'get',
+				description: 'Get a project ticket by ID',
+				action: 'Get a project ticket',
+			},
+			{
+				name: 'Get Many',
+				value: 'getAll',
+				description: 'Get many project tickets',
+				action: 'Get many project tickets',
+			},
+			{
+				name: 'Search',
+				value: 'search',
+				description: 'Search project tickets',
+				action: 'Search project tickets',
+			},
+			{
+				name: 'Update',
+				value: 'update',
+				description: 'Update a project ticket',
+				action: 'Update a project ticket',
+			},
+		],
+		default: 'create',
+	},
+	{
+		displayName: 'Project Ticket ID',
+		name: 'projectTicketId',
+		type: 'string' as NodePropertyTypes,
+		default: '',
+		required: true,
+		displayOptions: {
+			show: {
+				resource: ['projectTicket'],
+				operation: ['get', 'update', 'delete'],
+			},
+		},
+		description: 'The ID of the project ticket',
+	},
+	{
+		displayName: 'Summary',
+		name: 'summary',
+		type: 'string' as NodePropertyTypes,
+		default: '',
+		required: true,
+		displayOptions: {
+			show: {
+				resource: ['projectTicket'],
+				operation: ['create'],
+			},
+		},
+		description: 'The summary of the project ticket',
+	},
+	{
+		displayName: 'Conditions',
+		name: 'conditions',
+		type: 'string' as NodePropertyTypes,
+		default: '',
+		required: true,
+		displayOptions: {
+			show: {
+				resource: ['projectTicket'],
+				operation: ['search'],
+			},
+		},
+		description: 'Search conditions to filter project tickets (e.g., summary="Ticket Summary" or status/id=1)',
+		placeholder: 'summary contains "Example"',
+	},
+	{
+		displayName: 'Return All',
+		name: 'returnAll',
+		type: 'boolean' as NodePropertyTypes,
+		default: false,
+		displayOptions: {
+			show: {
+				resource: ['projectTicket'],
+				operation: ['getAll', 'search'],
+			},
+		},
+		description: 'Whether to return all results or only up to a given limit',
+	},
+	{
+		displayName: 'Limit',
+		name: 'limit',
+		type: 'number' as NodePropertyTypes,
+		default: 100,
+		displayOptions: {
+			show: {
+				resource: ['projectTicket'],
+				operation: ['getAll', 'search'],
+				returnAll: [false],
+			},
+		},
+		typeOptions: {
+			minValue: 1,
+			maxValue: 1000,
+		},
+		description: 'Max number of results to return',
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection' as NodePropertyTypes,
+		placeholder: 'Add Field',
+		default: {},
+		displayOptions: {
+			show: {
+				resource: ['projectTicket'],
+				operation: ['create', 'update'],
+			},
+		},
+		options: [
+			{
+				displayName: 'Project ID',
+				name: 'project',
+				type: 'number' as NodePropertyTypes,
+				default: 0,
+				description: 'The ID of the project this ticket belongs to',
+			},
+			{
+				displayName: 'Phase ID',
+				name: 'phase',
+				type: 'number' as NodePropertyTypes,
+				default: 0,
+				description: 'The ID of the project phase',
+			},
+			{
+				displayName: 'Board ID',
+				name: 'board',
+				type: 'number' as NodePropertyTypes,
+				default: 0,
+				description: 'The ID of the board',
+			},
+			{
+				displayName: 'Status ID',
+				name: 'status',
+				type: 'number' as NodePropertyTypes,
+				default: 0,
+				description: 'The ID of the status',
+			},
+			{
+				displayName: 'Priority ID',
+				name: 'priority',
+				type: 'number' as NodePropertyTypes,
+				default: 0,
+				description: 'The ID of the priority',
+			},
+			{
+				displayName: 'Type ID',
+				name: 'type',
+				type: 'number' as NodePropertyTypes,
+				default: 0,
+				description: 'The ID of the ticket type',
+			},
+			{
+				displayName: 'Subtype ID',
+				name: 'subType',
+				type: 'number' as NodePropertyTypes,
+				default: 0,
+				description: 'The ID of the ticket subtype',
+			},
+			{
+				displayName: 'Company ID',
+				name: 'company',
+				type: 'number' as NodePropertyTypes,
+				default: 0,
+				description: 'The ID of the company',
+			},
+			{
+				displayName: 'Contact ID',
+				name: 'contact',
+				type: 'number' as NodePropertyTypes,
+				default: 0,
+				description: 'The ID of the contact',
+			},
+			{
+				displayName: 'Assigned Resources',
+				name: 'assignedResources',
+				type: 'string' as NodePropertyTypes,
+				default: '',
+				description: 'Comma-separated list of member IDs to assign',
+			},
+			{
+				displayName: 'Description',
+				name: 'description',
+				type: 'string' as NodePropertyTypes,
+				default: '',
+				description: 'The description of the project ticket',
+			},
+			{
+				displayName: 'Estimated Hours',
+				name: 'estimatedHours',
+				type: 'number' as NodePropertyTypes,
+				default: 0,
+				description: 'Estimated hours for the ticket',
+			},
+			{
+				displayName: 'Actual Hours',
+				name: 'actualHours',
+				type: 'number' as NodePropertyTypes,
+				default: 0,
+				description: 'Actual hours spent on the ticket',
+			},
+			{
+				displayName: 'Scheduled Start',
+				name: 'scheduledStart',
+				type: 'dateTime' as NodePropertyTypes,
+				default: '',
+				description: 'Scheduled start date/time',
+			},
+			{
+				displayName: 'Scheduled End',
+				name: 'scheduledEnd',
+				type: 'dateTime' as NodePropertyTypes,
+				default: '',
+				description: 'Scheduled end date/time',
+			},
+			{
+				displayName: 'Closed Flag',
+				name: 'closedFlag',
+				type: 'boolean' as NodePropertyTypes,
+				default: false,
+				description: 'Whether the ticket is closed',
+			},
+		],
+	},
+];

@@ -205,6 +205,11 @@ const resourceConfig: IResourceConfig = {
 		primaryKey: 'projectId',
 		requiredCreateFields: ['name'],
 	},
+	projectTicket: {
+		endpoint: 'project/tickets',
+		primaryKey: 'projectTicketId',
+		requiredCreateFields: ['summary'],
+	},
 	invoice: {
 		endpoint: 'finance/invoices',
 		primaryKey: 'invoiceId',
