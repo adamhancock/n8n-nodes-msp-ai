@@ -97,7 +97,7 @@ const orderByProperty: INodeProperties = {
 	type: 'string' as NodePropertyTypes,
 	displayOptions: {
 		show: {
-			operation: ['getAll', 'search'],
+			operation: ['getAll', 'search', 'searchByPhone', 'getNotes', 'listDocuments'],
 		},
 	},
 	default: '',
