@@ -145,19 +145,6 @@ export const companyProperties: INodeProperties[] = [
 		description: 'Max number of results to return',
 	},
 	{
-		displayName: 'Order By',
-		name: 'orderBy',
-		type: 'string' as NodePropertyTypes,
-		default: 'id',
-		displayOptions: {
-			show: {
-				resource: ['company'],
-				operation: ['getAll', 'search'],
-			},
-		},
-		description: 'Order results by specified field',
-	},
-	{
 		displayName: 'Additional Fields',
 		name: 'additionalFields',
 		type: 'collection' as NodePropertyTypes,
