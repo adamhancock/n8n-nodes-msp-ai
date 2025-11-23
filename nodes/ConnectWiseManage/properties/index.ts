@@ -11,6 +11,7 @@ import { memberProperties } from './memberProperties';
 import { opportunityProperties } from './opportunityProperties';
 import { productCatalogProperties } from './productCatalogProperties';
 import { projectProperties } from './projectProperties';
+import { projectTicketProperties } from './projectTicketProperties';
 import { purchaseOrderProperties } from './purchaseOrderProperties';
 import { scheduleProperties } from './scheduleProperties';
 import { ticketProperties } from './ticketProperties';
@@ -70,6 +71,10 @@ const resourceProperty: INodeProperties = {
 		{
 			name: 'Project',
 			value: 'project',
+		},
+		{
+			name: 'Project Ticket',
+			value: 'projectTicket',
 		},
 		{
 			name: 'Purchase Order',
@@ -153,6 +158,7 @@ export const properties: INodeProperties[] = [
 	...opportunityProperties,
 	...productCatalogProperties,
 	...projectProperties,
+	...projectTicketProperties,
 	...purchaseOrderProperties,
 	...scheduleProperties,
 	...ticketProperties,
