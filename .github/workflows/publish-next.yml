@@ -6,6 +6,16 @@ on:
       - main
     paths:
       - 'package.json'
+  workflow_dispatch:
+    inputs:
+      skip_version_check:
+        description: 'Skip version change check (useful for testing build/lint)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
 
 jobs:
   check-version:
@@ -30,7 +40,7 @@ jobs:
 
   publish-next:
     needs: check-version
-    if: needs.check-version.outputs.version_changed == 'true'
+    if: needs.check-version.outputs.version_changed == 'true' || inputs.skip_version_check == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
