@@ -140,6 +140,20 @@ export const ticketProperties: INodeProperties[] = [
 		description: 'Whether to return all results or only up to a given limit',
 	},
 	{
+		displayName: 'Fields',
+		name: 'fields',
+		type: 'string' as NodePropertyTypes,
+		displayOptions: {
+			show: {
+				resource: ['ticket'],
+				operation: ['get', 'getAll', 'search', 'getByContact'],
+			},
+		},
+		default: '',
+		description: 'Comma-separated list of fields to return (e.g., id,summary,status). Leave empty to return all fields.',
+		placeholder: 'id,summary,status,board,company',
+	},
+	{
 		displayName: 'Limit',
 		name: 'limit',
 		type: 'number' as NodePropertyTypes,
