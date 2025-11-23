@@ -1,6 +1,6 @@
 {
 	"name": "@adamhancock/n8n-nodes-msp-ai",
-	"version": "0.1.17",
+	"version": "0.1.18",
 	"description": "Custom n8n nodes for MSPs",
 	"keywords": [
 		"n8n-community-node-package"
