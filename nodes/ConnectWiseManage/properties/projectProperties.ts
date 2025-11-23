@@ -80,8 +80,8 @@ export const projectProperties: INodeProperties[] = [
 		description: 'The name of the project',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -91,7 +91,8 @@ export const projectProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter projects',
+		description: 'Search conditions to filter projects (e.g., name="Project Name" or status/id=1)',
+		placeholder: 'name contains "Example"',
 	},
 	{
 		displayName: 'Return All',
@@ -100,7 +101,7 @@ export const projectProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['project'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -113,7 +114,7 @@ export const projectProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['project'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},
@@ -122,19 +123,6 @@ export const projectProperties: INodeProperties[] = [
 		},
 		default: 100,
 		description: 'Max number of results to return',
-	},
-	{
-		displayName: 'Order By',
-		name: 'orderBy',
-		type: 'string' as NodePropertyTypes,
-		default: 'id',
-		displayOptions: {
-			show: {
-				resource: ['project'],
-				operation: ['getAll', 'search'],
-			},
-		},
-		description: 'Order results by specified field',
 	},
 	{
 		displayName: 'Additional Fields',

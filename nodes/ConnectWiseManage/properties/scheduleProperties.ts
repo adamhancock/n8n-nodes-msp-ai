@@ -112,8 +112,8 @@ export const scheduleProperties: INodeProperties[] = [
 		description: 'The ID of the object to schedule',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -123,7 +123,8 @@ export const scheduleProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter schedule entries',
+		description: 'Search conditions to filter schedule entries (e.g., objectType="Activity" or member/identifier="jsmith")',
+		placeholder: 'objectType="Ticket"',
 	},
 	{
 		displayName: 'Return All',
@@ -132,7 +133,7 @@ export const scheduleProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['schedule'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -145,7 +146,7 @@ export const scheduleProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['schedule'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},
@@ -154,19 +155,6 @@ export const scheduleProperties: INodeProperties[] = [
 		},
 		default: 100,
 		description: 'Max number of results to return',
-	},
-	{
-		displayName: 'Order By',
-		name: 'orderBy',
-		type: 'string' as NodePropertyTypes,
-		default: 'id',
-		displayOptions: {
-			show: {
-				resource: ['schedule'],
-				operation: ['getAll', 'search'],
-			},
-		},
-		description: 'Order results by specified field',
 	},
 	{
 		displayName: 'Additional Fields',

@@ -359,20 +359,6 @@ export const ticketProperties: INodeProperties[] = [
 		placeholder: 'status/ID=1 and priority/ID=3',
 		description: 'Query conditions to filter results (e.g., status/ID=1 and priority/ID=3)',
 	},
-	{
-		displayName: 'Order By',
-		name: 'orderBy',
-		type: 'string' as NodePropertyTypes,
-		default: 'id',
-		displayOptions: {
-			show: {
-				resource: ['ticket'],
-				operation: ['getAll', 'search', 'getNotes', 'listDocuments'], // Added getNotes, listDocuments
-			},
-		},
-		placeholder: 'priority/sort desc, ID asc',
-		description: 'Order results by specified field (e.g., priority/sort desc, ID asc)',
-	},
 	// Filters (Consider removing if 'Conditions' is preferred)
 	{
 		displayName: 'Filters',

@@ -80,8 +80,8 @@ export const productCatalogProperties: INodeProperties[] = [
 		description: 'The name of the product catalog item',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -91,7 +91,8 @@ export const productCatalogProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter product catalog items',
+		description: 'Search conditions to filter product catalog items (e.g., name contains "Software" or category/id=10)',
+		placeholder: 'inactiveFlag=false',
 	},
 	{
 		displayName: 'Return All',
@@ -100,7 +101,7 @@ export const productCatalogProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['productCatalog'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -113,7 +114,7 @@ export const productCatalogProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['productCatalog'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},
@@ -122,19 +123,6 @@ export const productCatalogProperties: INodeProperties[] = [
 		},
 		default: 100,
 		description: 'Max number of results to return',
-	},
-	{
-		displayName: 'Order By',
-		name: 'orderBy',
-		type: 'string' as NodePropertyTypes,
-		default: 'id',
-		displayOptions: {
-			show: {
-				resource: ['productCatalog'],
-				operation: ['getAll', 'search'],
-			},
-		},
-		description: 'Order results by specified field',
 	},
 	{
 		displayName: 'Additional Fields',

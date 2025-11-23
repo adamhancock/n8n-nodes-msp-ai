@@ -80,8 +80,8 @@ export const configurationProperties: INodeProperties[] = [
 		description: 'The name of the configuration',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -91,7 +91,8 @@ export const configurationProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter configurations',
+		description: 'Search conditions to filter configurations (e.g., name contains "Server" or company/id=250)',
+		placeholder: 'company/id=250',
 	},
 	{
 		displayName: 'Return All',
@@ -100,7 +101,7 @@ export const configurationProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['configuration'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -113,7 +114,7 @@ export const configurationProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['configuration'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},
@@ -122,19 +123,6 @@ export const configurationProperties: INodeProperties[] = [
 		},
 		default: 100,
 		description: 'Max number of results to return',
-	},
-	{
-		displayName: 'Order By',
-		name: 'orderBy',
-		type: 'string' as NodePropertyTypes,
-		default: 'id',
-		displayOptions: {
-			show: {
-				resource: ['configuration'],
-				operation: ['getAll', 'search'],
-			},
-		},
-		description: 'Order results by specified field',
 	},
 	{
 		displayName: 'Additional Fields',

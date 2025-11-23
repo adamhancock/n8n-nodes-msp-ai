@@ -80,8 +80,8 @@ export const memberProperties: INodeProperties[] = [
 		description: 'The unique identifier/username of the member',
 	},
 	{
-		displayName: 'Search Query',
-		name: 'searchQuery',
+		displayName: 'Conditions',
+		name: 'conditions',
 		type: 'string' as NodePropertyTypes,
 		default: '',
 		required: true,
@@ -91,7 +91,8 @@ export const memberProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search query to filter members',
+		description: 'Search conditions to filter members (e.g., identifier="jsmith" or firstName contains "John")',
+		placeholder: 'inactiveFlag=false',
 	},
 	{
 		displayName: 'Return All',
@@ -100,7 +101,7 @@ export const memberProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['member'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 			},
 		},
 		default: false,
@@ -113,7 +114,7 @@ export const memberProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['member'],
-				operation: ['getAll'],
+				operation: ['getAll', 'search'],
 				returnAll: [false],
 			},
 		},
@@ -122,19 +123,6 @@ export const memberProperties: INodeProperties[] = [
 		},
 		default: 100,
 		description: 'Max number of results to return',
-	},
-	{
-		displayName: 'Order By',
-		name: 'orderBy',
-		type: 'string' as NodePropertyTypes,
-		default: 'id',
-		displayOptions: {
-			show: {
-				resource: ['member'],
-				operation: ['getAll', 'search'],
-			},
-		},
-		description: 'Order results by specified field',
 	},
 	{
 		displayName: 'Additional Fields',
