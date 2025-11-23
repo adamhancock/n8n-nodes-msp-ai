@@ -150,7 +150,7 @@ export const scheduleProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,name,dateStart). Leave empty to return all fields.',
+		description: 'Comma-separated list of fields to return (e.g., ID,name,dateStart). Leave empty to return all fields.',
 		placeholder: 'id,name,dateStart,dateEnd,member',
 	},
 	{

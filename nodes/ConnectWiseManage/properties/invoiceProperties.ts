@@ -91,7 +91,7 @@ export const invoiceProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search conditions to filter invoices (e.g., company/id=250 or status="Sent")',
+		description: 'Search conditions to filter invoices (e.g., company/ID=250 or status="Sent")',
 		placeholder: 'status="Sent"',
 	},
 	{
@@ -118,8 +118,8 @@ export const invoiceProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,invoiceNumber,status). Leave empty to return all fields.',
-		placeholder: 'id,invoiceNumber,status,total,company',
+		description: 'Comma-separated list of fields to return (e.g., ID,invoiceNumber,status). Leave empty to return all fields.',
+		placeholder: 'ID,invoiceNumber,status,total,company',
 	},
 	{
 		displayName: 'Limit',

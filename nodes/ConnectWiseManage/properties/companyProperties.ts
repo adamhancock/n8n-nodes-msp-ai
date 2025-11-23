@@ -97,7 +97,7 @@ export const companyProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search conditions to filter companies (e.g., name contains "Tech" or status/id=1)',
+		description: 'Search conditions to filter companies (e.g., name contains "Tech" or status/ID=1)',
 		placeholder: 'name contains "Tech"',
 	},
 	{
@@ -138,7 +138,7 @@ export const companyProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,name,status). Leave empty to return all fields.',
+		description: 'Comma-separated list of fields to return (e.g., ID,name,status). Leave empty to return all fields.',
 		placeholder: 'id,name,status,phoneNumber',
 	},
 	{

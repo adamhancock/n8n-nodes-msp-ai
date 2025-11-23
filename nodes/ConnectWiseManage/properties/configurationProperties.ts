@@ -91,8 +91,8 @@ export const configurationProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search conditions to filter configurations (e.g., name contains "Server" or company/id=250)',
-		placeholder: 'company/id=250',
+		description: 'Search conditions to filter configurations (e.g., name contains "Server" or company/ID=250)',
+		placeholder: 'company/ID=250',
 	},
 	{
 		displayName: 'Return All',
@@ -118,7 +118,7 @@ export const configurationProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,name,company). Leave empty to return all fields.',
+		description: 'Comma-separated list of fields to return (e.g., ID,name,company). Leave empty to return all fields.',
 		placeholder: 'id,name,company,type,status',
 	},
 	{

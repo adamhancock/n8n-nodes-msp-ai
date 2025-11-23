@@ -92,7 +92,7 @@ export const opportunityProperties: INodeProperties[] = [
 			},
 		},
 		description: 'Search conditions to filter opportunities (e.g., name contains "Project" or expectedCloseDate > [2024-01-01])',
-		placeholder: 'status/id=1',
+		placeholder: 'status/ID=1',
 	},
 	{
 		displayName: 'Return All',
@@ -118,7 +118,7 @@ export const opportunityProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,name,expectedCloseDate). Leave empty to return all fields.',
+		description: 'Comma-separated list of fields to return (e.g., ID,name,expectedCloseDate). Leave empty to return all fields.',
 		placeholder: 'id,name,expectedCloseDate,status,company',
 	},
 	{

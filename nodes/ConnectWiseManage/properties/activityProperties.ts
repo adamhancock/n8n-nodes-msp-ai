@@ -91,8 +91,8 @@ export const activityProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search conditions to filter activities (e.g., name contains "Meeting" or type/id=1)',
-		placeholder: 'company/id=250',
+		description: 'Search conditions to filter activities (e.g., name contains "Meeting" or type/ID=1)',
+		placeholder: 'company/ID=250',
 	},
 	{
 		displayName: 'Return All',
@@ -118,7 +118,7 @@ export const activityProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,name,type). Leave empty to return all fields.',
+		description: 'Comma-separated list of fields to return (e.g., ID,name,type). Leave empty to return all fields.',
 		placeholder: 'id,name,type,status,assignedBy',
 	},
 	{

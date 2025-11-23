@@ -118,8 +118,8 @@ export const memberProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,identifier,firstName). Leave empty to return all fields.',
-		placeholder: 'id,identifier,firstName,lastName,email',
+		description: 'Comma-separated list of fields to return (e.g., ID,identifier,firstName). Leave empty to return all fields.',
+		placeholder: 'ID,identifier,firstName,lastName,email',
 	},
 	{
 		displayName: 'Limit',

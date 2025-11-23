@@ -118,7 +118,7 @@ export const agreementProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,name,type). Leave empty to return all fields.',
+		description: 'Comma-separated list of fields to return (e.g., ID,name,type). Leave empty to return all fields.',
 		placeholder: 'id,name,type,startDate,endDate',
 	},
 	{

@@ -91,7 +91,7 @@ export const productCatalogProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search conditions to filter product catalog items (e.g., name contains "Software" or category/id=10)',
+		description: 'Search conditions to filter product catalog items (e.g., name contains "Software" or category/ID=10)',
 		placeholder: 'inactiveFlag=false',
 	},
 	{
@@ -118,8 +118,8 @@ export const productCatalogProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,identifier,description). Leave empty to return all fields.',
-		placeholder: 'id,identifier,description,price,category',
+		description: 'Comma-separated list of fields to return (e.g., ID,identifier,description). Leave empty to return all fields.',
+		placeholder: 'ID,identifier,description,price,category',
 	},
 	{
 		displayName: 'Limit',

@@ -113,7 +113,7 @@ export const contactProperties: INodeProperties[] = [
 		},
 		description:
 			'Search conditions to filter contacts. Use conditions like `firstName="John"` or `lastName like "Smith%"`.',
-		placeholder: 'company/id=250',
+		placeholder: 'company/ID=250',
 	},
 	{
 		displayName: 'Phone Number',
@@ -153,8 +153,8 @@ export const contactProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,firstName,lastName). Leave empty to return all fields.',
-		placeholder: 'id,firstName,lastName,email,company',
+		description: 'Comma-separated list of fields to return (e.g., ID,firstName,lastName). Leave empty to return all fields.',
+		placeholder: 'ID,firstName,lastName,email,company',
 	},
 	{
 		displayName: 'Limit',

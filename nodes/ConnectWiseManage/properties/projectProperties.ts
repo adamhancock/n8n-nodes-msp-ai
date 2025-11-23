@@ -91,7 +91,7 @@ export const projectProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search conditions to filter projects (e.g., name="Project Name" or status/id=1)',
+		description: 'Search conditions to filter projects (e.g., name="Project Name" or status/ID=1)',
 		placeholder: 'name contains "Example"',
 	},
 	{
@@ -118,7 +118,7 @@ export const projectProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,name,status). Leave empty to return all fields.',
+		description: 'Comma-separated list of fields to return (e.g., ID,name,status). Leave empty to return all fields.',
 		placeholder: 'id,name,status,company,manager',
 	},
 	{

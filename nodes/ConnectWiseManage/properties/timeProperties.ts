@@ -91,8 +91,8 @@ export const timeProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search conditions to filter time entries (e.g., chargeCode/id=123 or member/identifier="jsmith")',
-		placeholder: 'company/id=250',
+		description: 'Search conditions to filter time entries (e.g., chargeCode/ID=123 or member/identifier="jsmith")',
+		placeholder: 'company/ID=250',
 	},
 	{
 		displayName: 'Return All',
@@ -118,8 +118,8 @@ export const timeProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,timeStart,timeEnd). Leave empty to return all fields.',
-		placeholder: 'id,timeStart,timeEnd,member,company',
+		description: 'Comma-separated list of fields to return (e.g., ID,timeStart,timeEnd). Leave empty to return all fields.',
+		placeholder: 'ID,timeStart,timeEnd,member,company',
 	},
 	{
 		displayName: 'Limit',

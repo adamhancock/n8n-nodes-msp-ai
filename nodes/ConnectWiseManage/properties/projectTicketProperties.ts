@@ -91,7 +91,7 @@ export const projectTicketProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search conditions to filter project tickets (e.g., summary="Ticket Summary" or status/id=1)',
+		description: 'Search conditions to filter project tickets (e.g., summary="Ticket Summary" or status/ID=1)',
 		placeholder: 'summary contains "Example"',
 	},
 	{

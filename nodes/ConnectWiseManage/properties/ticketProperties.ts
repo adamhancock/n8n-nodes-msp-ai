@@ -150,8 +150,8 @@ export const ticketProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,summary,status). Leave empty to return all fields.',
-		placeholder: 'id,summary,status,board,company',
+		description: 'Comma-separated list of fields to return (e.g., ID,summary,status). Leave empty to return all fields.',
+		placeholder: 'ID,summary,status,board,company',
 	},
 	{
 		displayName: 'Limit',

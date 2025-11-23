@@ -91,7 +91,7 @@ export const expenseProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search conditions to filter expenses (e.g., company/id=250 or amount > 100)',
+		description: 'Search conditions to filter expenses (e.g., company/ID=250 or amount > 100)',
 		placeholder: 'member/identifier="jsmith"',
 	},
 	{
@@ -118,8 +118,8 @@ export const expenseProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,amount,date). Leave empty to return all fields.',
-		placeholder: 'id,amount,date,member,company',
+		description: 'Comma-separated list of fields to return (e.g., ID,amount,date). Leave empty to return all fields.',
+		placeholder: 'ID,amount,date,member,company',
 	},
 	{
 		displayName: 'Limit',

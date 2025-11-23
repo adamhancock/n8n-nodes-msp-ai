@@ -91,7 +91,7 @@ export const purchaseOrderProperties: INodeProperties[] = [
 				operation: ['search'],
 			},
 		},
-		description: 'Search conditions to filter purchase orders (e.g., vendor/id=123 or status="Open")',
+		description: 'Search conditions to filter purchase orders (e.g., vendor/ID=123 or status="Open")',
 		placeholder: 'status="Open"',
 	},
 	{
@@ -118,8 +118,8 @@ export const purchaseOrderProperties: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Comma-separated list of fields to return (e.g., id,poNumber,status). Leave empty to return all fields.',
-		placeholder: 'id,poNumber,status,vendor,total',
+		description: 'Comma-separated list of fields to return (e.g., ID,poNumber,status). Leave empty to return all fields.',
+		placeholder: 'ID,poNumber,status,vendor,total',
 	},
 	{
 		displayName: 'Limit',
