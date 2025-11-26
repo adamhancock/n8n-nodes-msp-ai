@@ -209,6 +209,25 @@ const resourceConfig: IResourceConfig = {
 		endpoint: 'project/tickets',
 		primaryKey: 'projectTicketId',
 		requiredCreateFields: ['summary'],
+		specialOperations: {
+			getNotes: {
+				method: Methods.GET,
+				endpoint: (id) => `project/tickets/${id}/allNotes`,
+				getBody: (params) => {
+					const qs: IDataObject = {};
+					if (params.conditions) {
+						qs.conditions = params.conditions;
+					}
+					if (params.orderBy) {
+						qs.orderBy = params.orderBy;
+					}
+					if (params.fields) {
+						qs.fields = params.fields;
+					}
+					return qs;
+				},
+			},
+		},
 	},
 	invoice: {
 		endpoint: 'finance/invoices',
@@ -759,9 +778,11 @@ export class ConnectWiseManage implements INodeType {
 								const params: IDataObject = {};
 								const conditions = this.getNodeParameter('conditions', i, '') as string;
 								const orderBy = this.getNodeParameter('orderBy', i, '') as string;
+								const fields = this.getNodeParameter('fields', i, '') as string;
 
 								if (conditions) params.conditions = conditions;
 								if (orderBy) params.orderBy = orderBy;
+								if (fields) params.fields = fields;
 
 								const queryParams = specialOp?.getBody ? specialOp.getBody(params) : params;
 								responseData = await makeApiRequest(

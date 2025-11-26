@@ -37,6 +37,12 @@ export const projectTicketProperties: INodeProperties[] = [
 				action: 'Get many project tickets',
 			},
 			{
+				name: 'Get Notes',
+				value: 'getNotes',
+				description: 'Get notes for a project ticket',
+				action: 'Get notes for a project ticket',
+			},
+			{
 				name: 'Search',
 				value: 'search',
 				description: 'Search project tickets',
@@ -60,7 +66,7 @@ export const projectTicketProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['projectTicket'],
-				operation: ['get', 'update', 'delete'],
+				operation: ['get', 'update', 'delete', 'getNotes'],
 			},
 		},
 		description: 'The ID of the project ticket',
@@ -95,6 +101,48 @@ export const projectTicketProperties: INodeProperties[] = [
 		placeholder: 'summary contains "Example"',
 	},
 	{
+		displayName: 'Conditions',
+		name: 'conditions',
+		type: 'string' as NodePropertyTypes,
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['projectTicket'],
+				operation: ['getNotes'],
+			},
+		},
+		description: 'Query conditions to filter notes (e.g., text contains "Example")',
+		placeholder: 'text contains "Example"',
+	},
+	{
+		displayName: 'Fields',
+		name: 'fields',
+		type: 'string' as NodePropertyTypes,
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['projectTicket'],
+				operation: ['get', 'getAll', 'search'],
+			},
+		},
+		description: 'Comma-separated list of fields to return (e.g., id,summary,status). Leave empty to return all fields.',
+		placeholder: 'id,summary,status,project,phase',
+	},
+	{
+		displayName: 'Fields',
+		name: 'fields',
+		type: 'string' as NodePropertyTypes,
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['projectTicket'],
+				operation: ['getNotes'],
+			},
+		},
+		description: 'Comma-separated list of fields to return (e.g., id,text,dateCreated)',
+		placeholder: 'id,text,dateCreated,createdBy',
+	},
+	{
 		displayName: 'Return All',
 		name: 'returnAll',
 		type: 'boolean' as NodePropertyTypes,
@@ -102,7 +150,7 @@ export const projectTicketProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['projectTicket'],
-				operation: ['getAll', 'search'],
+				operation: ['getAll', 'search', 'getNotes'],
 			},
 		},
 		description: 'Whether to return all results or only up to a given limit',
@@ -115,7 +163,7 @@ export const projectTicketProperties: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['projectTicket'],
-				operation: ['getAll', 'search'],
+				operation: ['getAll', 'search', 'getNotes'],
 				returnAll: [false],
 			},
 		},
