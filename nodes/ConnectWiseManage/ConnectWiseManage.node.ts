@@ -82,7 +82,7 @@ const resourceConfig: IResourceConfig = {
 	ticket: {
 		endpoint: 'service/tickets',
 		primaryKey: 'ticketId',
-		requiredCreateFields: ['summary'],
+		requiredCreateFields: ['summary', 'company'],
 		specialOperations: {
 			getNotes: {
 				method: Methods.GET,
@@ -858,10 +858,18 @@ export class ConnectWiseManage implements INodeType {
 						// Skip standard operation handling for document downloads
 						switch (operation) {
 							case 'create': {
+								// Fields that need to be formatted as { id: value } for ConnectWise API
+								const referenceFields = ['board', 'company', 'contact', 'type', 'subType', 'priority', 'status', 'agreement'];
+
 								// Get required fields for this resource
 								const body: IDataObject = {};
 								for (const field of currentResource.requiredCreateFields) {
-									body[field] = this.getNodeParameter(field, i);
+									const value = this.getNodeParameter(field, i);
+									if (referenceFields.includes(field) && value !== '' && value !== undefined) {
+										body[field] = { id: Number(value) };
+									} else {
+										body[field] = value;
+									}
 								}
 
 								// Add any additional fields
@@ -869,7 +877,15 @@ export class ConnectWiseManage implements INodeType {
 									'additionalFields',
 									i,
 								) as IDataObject;
-								Object.assign(body, additionalFields);
+
+								for (const [key, value] of Object.entries(additionalFields)) {
+									if (referenceFields.includes(key) && value !== '' && value !== undefined) {
+										// Convert to nested object format: { id: value }
+										body[key] = { id: Number(value) };
+									} else if (value !== '' && value !== undefined) {
+										body[key] = value;
+									}
+								}
 
 								responseData = await makeApiRequest(
 									Methods.POST,

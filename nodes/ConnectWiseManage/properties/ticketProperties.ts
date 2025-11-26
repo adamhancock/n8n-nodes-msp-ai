@@ -241,6 +241,20 @@ export const ticketProperties: INodeProperties[] = [
 		},
 		description: 'The summary of the ticket',
 	},
+	{
+		displayName: 'Company ID',
+		name: 'company',
+		type: 'number' as NodePropertyTypes,
+		default: '',
+		required: true,
+		displayOptions: {
+			show: {
+				resource: ['ticket'],
+				operation: ['create'],
+			},
+		},
+		description: 'The ID of the company associated with the ticket',
+	},
 	// Fields for addNote
 	{
 		displayName: 'Note Text',
